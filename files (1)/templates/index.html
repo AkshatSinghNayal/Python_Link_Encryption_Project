@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener (by Me)</title>
+    <!-- Google Fonts for a nicer look, I guess? -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <!-- TODO: Maybe add favicon later? -->
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span style="color:#4fc3f7">My</span> URL Shortener
+        </h1>
+        <!-- Main form for user input (hope this works!) -->
+        <form method="POST" autocomplete="off">
+            <input 
+                type="text" 
+                name="original_url" 
+                placeholder="Paste your long URL here (with http:// or https://)" 
+                required
+            >
+            <button type="submit">Shorten it!</button>
+        </form>
+        <!-- Show error/info messages (flask stuff) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, msg in messages %}
+              <div class="{{ category }}">{{ msg }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <!-- Show the short URL if it was created -->
+        {% if short_url %}
+        <div class="result">
+            <b>Here’s your short URL:</b><br>
+            <input 
+                type="text" 
+                value="{{ short_url }}" 
+                readonly 
+                onclick="this.select();document.execCommand('copy');" 
+                title="Click to copy!"
+            >
+            <br>
+            <small>(Click the box to copy it!)</small>
+        </div>
+        {% endif %}
+        <!-- Just a little footer for fun (maybe make this fancier later?) -->
+        <div style="margin-top:30px;font-size:13px;color:#aaa;">
+            Made for my web app project :) <!-- lol -->
+        </div>
+        <!-- <div>Unused div for future stuff?</div> -->
+    </div>
+</body>
+</html>
