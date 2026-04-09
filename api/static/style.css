@@ -1,27 +1,24 @@
-/* My URL Shortener Styles - kinda basic but works! */
 :root {
     --main-blue: #4fc3f7;
     --accent-blue: #1565c0;
     --bg-white: #fafdff;
-    --box-white: #fff;
+    --box-white: #ffffff;
     --text-dark: #1a237e;
     --text-light: #607d8b;
-    --shadow: 0 4px 24px rgba(33,150,243,0.09);
+    --shadow: 0 4px 24px rgba(33, 150, 243, 0.09);
 }
 
-/* Just center everything */
 body {
     margin: 0;
     min-height: 100vh;
     background: linear-gradient(135deg, var(--main-blue) 0%, var(--bg-white) 100%);
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: var(--text-dark);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Main box */
 .container {
     background: var(--box-white);
     border-radius: 18px;
@@ -29,126 +26,109 @@ body {
     max-width: 420px;
     width: 100%;
     margin: 40px auto;
-    padding: 38px 32px 30px 32px;
+    padding: 38px 32px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Title */
 h1 {
     font-weight: 700;
-    font-size: 2.3rem;
-    margin: 0 0 22px 0;
+    font-size: 2.2rem;
+    margin: 0 0 22px;
     letter-spacing: 1px;
     color: var(--accent-blue);
-    text-shadow: 0 2px 8px #e3f2fd;
 }
 
-/* Form stuff */
+h1 span {
+    color: var(--main-blue);
+}
+
 form {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* Input box for URLs */
 input[type="text"] {
-    font-size: 1.07rem;
+    font-size: 1.05rem;
     padding: 12px 16px;
     border: 2px solid var(--main-blue);
     border-radius: 7px;
     margin-bottom: 16px;
-    transition: box-shadow 0.2s;
     outline: none;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
     background: #f6fbff;
     color: var(--text-dark);
 }
+
 input[type="text"]:focus {
     box-shadow: 0 0 0 2px var(--main-blue);
 }
 
-/* Button looks cool */
 button {
     background: linear-gradient(90deg, var(--main-blue), var(--accent-blue));
     color: #fff;
     font-weight: 700;
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     padding: 12px 0;
     border: none;
     border-radius: 7px;
     cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    box-shadow: 0 2px 8px #e3f2fd;
-    letter-spacing: 0.5px;
-}
-button:hover {
-    background: linear-gradient(90deg, var(--accent-blue), var(--main-blue));
-    transform: translateY(-2px) scale(1.03);
 }
 
-/* Result area for short URL */
+button:hover {
+    background: linear-gradient(90deg, var(--accent-blue), var(--main-blue));
+}
+
 .result {
-    margin-top: 26px;
+    margin-top: 24px;
     width: 100%;
     text-align: center;
-    animation: fadeIn 0.7s;
+    animation: fadeIn 0.5s ease;
 }
-.result b {
-    font-size: 1.12rem;
-    color: var(--accent-blue);
-}
+
 .result input[type="text"] {
     width: 85%;
     margin: 10px auto;
-    font-size: 1.05rem;
     text-align: center;
     background: #e3f2fd;
-    border: 2px solid var(--main-blue);
-    color: var(--text-dark);
-    transition: background 0.2s;
     cursor: pointer;
 }
-.result input[type="text"]:active,
-.result input[type="text"]:focus {
-    background: #bbdefb;
-    outline: none;
-}
+
 .result small {
     color: var(--text-light);
-    font-size: 0.98rem;
 }
 
-/* Error messages */
 .error {
     color: #d32f2f;
     background: #e3f2fd;
     border-radius: 5px;
     padding: 7px;
-    margin-top: 12px;
-    margin-bottom: -6px;
+    margin-top: 10px;
     text-align: center;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    box-shadow: 0 1px 4px #bbdefb;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Animation for result */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px);}
-    to { opacity: 1; transform: translateY(0);}
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Mobile tweaks */
 @media (max-width: 600px) {
     .container {
-        padding: 28px 10px 22px 10px;
-        max-width: 99vw;
+        padding: 24px 12px 20px;
+        max-width: 96vw;
     }
+
     h1 {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
     }
 }
-
-/* End of my CSS! Hope it looks okay :) */

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1><span>My</span> URL Shortener</h1>
+
+        <form method="POST" autocomplete="off">
+            <input
+                type="text"
+                name="original_url"
+                placeholder="Paste your long URL here (with http:// or https://)"
+                required
+            >
+            <button type="submit">Shorten it!</button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, msg in messages %}
+                    <div class="{{ category }}">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% if short_url %}
+            <div class="result">
+                <b>Here is your short URL:</b>
+                <input
+                    type="text"
+                    value="{{ short_url }}"
+                    readonly
+                    onclick="this.select();document.execCommand('copy');"
+                    title="Click to copy"
+                >
+                <small>Click the box to copy it.</small>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
