@@ -1,27 +1,32 @@
 :root {
-    --main-blue: #4fc3f7;
-    --accent-blue: #1565c0;
-    --bg-white: #fafdff;
-    --box-white: #ffffff;
-    --text-dark: #1a237e;
-    --text-light: #607d8b;
-    --shadow: 0 4px 24px rgba(33, 150, 243, 0.09);
+    --ink: #0f1012;
+    --charcoal: #1a1c20;
+    --slate: #2d3138;
+    --fog: #b8bcc6;
+    --mist: #d4d7dd;
+    --panel: #f2f3f5;
+    --paper: #fbfbfc;
+    --shadow: 0 14px 36px rgba(8, 8, 10, 0.22);
 }
 
 body {
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--main-blue) 0%, var(--bg-white) 100%);
+    background:
+        radial-gradient(1200px 600px at 100% -10%, #3a3f47 0%, transparent 55%),
+        radial-gradient(900px 500px at -10% 110%, #2a2d33 0%, transparent 50%),
+        linear-gradient(135deg, #0f1012 0%, #1a1c20 100%);
     font-family: "Montserrat", sans-serif;
-    color: var(--text-dark);
+    color: var(--ink);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .container {
-    background: var(--box-white);
-    border-radius: 18px;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--panel) 100%);
+    border: 1px solid #d9dbe0;
+    border-radius: 20px;
     box-shadow: var(--shadow);
     max-width: 420px;
     width: 100%;
@@ -37,11 +42,11 @@ h1 {
     font-size: 2.2rem;
     margin: 0 0 22px;
     letter-spacing: 1px;
-    color: var(--accent-blue);
+    color: var(--charcoal);
 }
 
 h1 span {
-    color: var(--main-blue);
+    color: var(--slate);
 }
 
 form {
@@ -53,21 +58,22 @@ form {
 input[type="text"] {
     font-size: 1.05rem;
     padding: 12px 16px;
-    border: 2px solid var(--main-blue);
+    border: 1px solid #c6cad2;
     border-radius: 7px;
     margin-bottom: 16px;
     outline: none;
     font-family: "Montserrat", sans-serif;
-    background: #f6fbff;
-    color: var(--text-dark);
+    background: #ffffff;
+    color: var(--ink);
 }
 
 input[type="text"]:focus {
-    box-shadow: 0 0 0 2px var(--main-blue);
+    border-color: var(--slate);
+    box-shadow: 0 0 0 3px rgba(45, 49, 56, 0.14);
 }
 
 button {
-    background: linear-gradient(90deg, var(--main-blue), var(--accent-blue));
+    background: linear-gradient(90deg, var(--ink), var(--charcoal));
     color: #fff;
     font-weight: 700;
     font-size: 1.05rem;
@@ -78,7 +84,7 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(90deg, var(--accent-blue), var(--main-blue));
+    background: linear-gradient(90deg, #23262c, #111214);
 }
 
 .result {
@@ -92,17 +98,19 @@ button:hover {
     width: 85%;
     margin: 10px auto;
     text-align: center;
-    background: #e3f2fd;
+    background: #edf0f4;
+    border-color: #c5c9d1;
     cursor: pointer;
 }
 
 .result small {
-    color: var(--text-light);
+    color: #5a606b;
 }
 
 .error {
-    color: #d32f2f;
-    background: #e3f2fd;
+    color: #7d1111;
+    background: #ece7e7;
+    border: 1px solid #d7c9c9;
     border-radius: 5px;
     padding: 7px;
     margin-top: 10px;
