@@ -1,6 +1,6 @@
 # Python Link Encryption Project
 
-This project is a Flask-based URL shortener prepared for Vercel deployment.
+This project is a Flask-based URL encrypter.
 
 ## Project Structure
 
