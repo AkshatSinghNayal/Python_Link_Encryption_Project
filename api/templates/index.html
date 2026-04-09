@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Shortener</title>
+    <title>Link Encryption Tool</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1><span>My</span> URL Shortener</h1>
+        <h1><span>My</span> Link Encryption</h1>
 
         <form method="POST" autocomplete="off">
             <input
                 type="text"
                 name="original_url"
-                placeholder="Paste your long URL here (with http:// or https://)"
+                placeholder="Paste your URL here to encrypt (with http:// or https://)"
                 required
             >
-            <button type="submit">Shorten it!</button>
+            <button type="submit">Encrypt Link</button>
         </form>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -31,7 +31,7 @@
 
         {% if short_url %}
             <div class="result">
-                <b>Here is your short URL:</b>
+                <b>Here is your encrypted link:</b>
                 <input
                     type="text"
                     value="{{ short_url }}"
@@ -39,7 +39,7 @@
                     onclick="this.select();document.execCommand('copy');"
                     title="Click to copy"
                 >
-                <small>Click the box to copy it.</small>
+                <small>Click the box to copy your encrypted link.</small>
             </div>
         {% endif %}
     </div>

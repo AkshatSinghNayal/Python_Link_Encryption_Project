@@ -24,7 +24,7 @@ def index():
         original_url = request.form.get("original_url", "").strip()
 
         if not (original_url.startswith("http://") or original_url.startswith("https://")):
-            flash("Please enter a valid URL starting with http:// or https://", "error")
+            flash("Please enter a valid URL to encrypt (starting with http:// or https://)", "error")
             return render_template("index.html", short_url=None)
 
         short_id = generate_short_id()
@@ -44,7 +44,7 @@ def redirect_to_url(short_id):
     if original_url:
         return redirect(original_url)
 
-    return "Invalid short URL!", 404
+    return "Invalid encrypted link!", 404
 
 
 if __name__ == "__main__":
